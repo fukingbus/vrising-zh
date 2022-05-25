@@ -26,7 +26,7 @@ async function entry() {
     const raw = JSON.parse(fs.readFileSync(`./input/${RAW_FILE}`))
     const translated = fs.existsSync(`./output/${TRANSLATED_FILE}`) ? JSON.parse(fs.readFileSync(`./output/${TRANSLATED_FILE}`)) : null
 
-    if(translated == null && raw.Nodes.length != translated.Nodes.length){
+    if(translated == null || raw.Nodes.length != translated.Nodes.length){
         console.log('[SYS] Begin Translation ')
         await doTranslate(raw)
     }
