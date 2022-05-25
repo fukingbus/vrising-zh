@@ -71,6 +71,14 @@ async function entry() {
         progressBar.increment()
     }
     progressBar.stop()
+
+    //specific
+
+    replacementDict.specific.forEach(it => {
+        let {id,replacement} = it
+        tmpTranslated.Nodes[tmpTranslated.Nodes.findIndex(what => what.Guid === id)].Text = replacement
+    })
+
     output(tmpTranslated,`./output/${TRANSLATED_FILE}`)
   }
 
